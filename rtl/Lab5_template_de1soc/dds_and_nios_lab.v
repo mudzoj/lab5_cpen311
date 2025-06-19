@@ -330,9 +330,61 @@ DE1_SoC_QSYS U0(
 //
 ////////////////////////////////////////////////////////////////////		   
 
-	
+
 (* keep = 1, preserve = 1 *) logic [11:0] actual_selected_modulation;
 (* keep = 1, preserve = 1 *) logic [11:0] actual_selected_signal;
+
+wire clk_1hz;
+
+My_Generate_Arbitrary_Divided
+My_Generate_Arbitrary_Divided_1Hz(
+	.inclk(CLOCK_50),
+	.Reset(1'b0),
+	.div_clk_count( 32'h17D7840 ),
+	.outclk(clk_1hz),
+	.outclk_Not()
+);
+
+wire [4:0] LFSR_data;
+
+LFSR LFSR_Instance(
+    .clk(clk_1hz),
+    .lfsr(LFSR_data)
+);
+
+
+// ----------------------------------------------------------------------------
+// Tuning word calculation for 3 Hz:
+//   inc = round( Fout * 2^32 / Fs )
+//       = round( 3 * 2^32 / 50e6 )
+//       ≈ round( 257.698 ) = 258 decimal = 32’h00000102
+// ----------------------------------------------------------------------------
+localparam [31:0] PHASE_INC_3HZ = 32'd258;
+wire [11:0] sin_out, cos_out, squ_out, saw_out;
+// Instantiate the NCO / waveform generator
+waveform_gen u_dds (
+	.clk        (CLOCK_50),            // sample clock
+	.reset      (1'b0),       // active‐high reset inside core
+	.en         (1'b1),           // always enabled
+	.phase_inc  (PHASE_INC_3HZ),  // tuning word for 3 Hz
+	.sin_out    (sin_out),
+	.cos_out    (cos_out),
+	.squ_out    (squ_out),
+	.saw_out    (saw_out)
+);
+
+wire [11:0] OOK_sin_out, OOK_cos_out, OOK_squ_out, OOK_saw_out;	
+assign OOK_sin_out = LFSR_data[0] ? sin_out : 12'b0;
+assign OOK_cos_out = LFSR_data[0] ? cos_out: 12'b0;
+assign OOK_squ_out = LFSR_data[0] ? squ_out: 12'b0;
+assign OOK_saw_out = LFSR_data[0] ? saw_out: 12'b0;
+
+wire [11:0] BPSK_sin_out, BPSK_cos_out, BPSK_squ_out, BPSK_saw_out;	
+assign BPSK_sin_out = LFSR_data[0] ? sin_out: (~sin_out + 12'd1);
+assign BPSK_cos_out = LFSR_data[0] ? cos_out: (~cos_out + 12'd1);
+assign BPSK_squ_out = LFSR_data[0] ? squ_out: (~squ_out + 12'd1);
+assign BPSK_saw_out = LFSR_data[0] ? saw_out: (~saw_out + 12'd1);
+	
 
 
 ////////////////////////////////////////////////////////////////////
@@ -644,4 +696,5 @@ end
 `endif 
 
 endmodule
+
 `default_nettype wire

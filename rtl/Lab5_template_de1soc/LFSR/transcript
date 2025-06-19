@@ -1,0 +1,113 @@
+# Compile of LFSR.sv failed with 1 errors.
+# Compile of tb_LFSR.sv was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of LFSR.sv was successful.
+# Compile of tb_LFSR.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.LFSR_tb
+# vsim work.LFSR_tb 
+# Start time: 15:49:52 on Jun 18,2025
+# Loading sv_std.std
+# Loading work.LFSR_tb
+# Loading work.LFSR
+add wave -position insertpoint  \
+sim:/LFSR_tb/clk \
+sim:/LFSR_tb/lfsr \
+sim:/LFSR_tb/cycle
+run -all
+# Time	Cycle	LFSR (hex)
+# 0	          0	1
+# 5000	          1	10
+# 15000	          2	18
+# 25000	          3	1c
+# 35000	          4	1e
+# 45000	          5	1f
+# 55000	          6	f
+# 65000	          7	7
+# 75000	          8	3
+# 85000	          9	11
+# 95000	         10	18
+# 105000	         11	1c
+# 115000	         12	1e
+# 125000	         13	1f
+# 135000	         14	f
+# 145000	         15	7
+# 155000	         16	3
+# 165000	         17	11
+# 175000	         18	18
+# 185000	         19	1c
+# 195000	         20	1e
+# 205000	         21	1f
+# 215000	         22	f
+# 225000	         23	7
+# 235000	         24	3
+# 245000	         25	11
+# 255000	         26	18
+# 265000	         27	1c
+# 275000	         28	1e
+# 285000	         29	1f
+# 295000	         30	f
+# 305000	         31	7
+# 315000	         32	3
+# 325000	         33	11
+# 335000	         34	18
+# 345000	         35	1c
+# 355000	         36	1e
+# 365000	         37	1f
+# 375000	         38	f
+# 385000	         39	7
+# ** Note: $finish    : C:/Users/mudzo/Desktop/CPEN311/lab5_cpen311/rtl/Lab5_template_de1soc/LFSR/tb_LFSR.sv(35)
+#    Time: 395 ns  Iteration: 1  Instance: /LFSR_tb
+# 1
+# Break in Module LFSR_tb at C:/Users/mudzo/Desktop/CPEN311/lab5_cpen311/rtl/Lab5_template_de1soc/LFSR/tb_LFSR.sv line 35
+# Compile of LFSR.sv was successful.
+# Compile of tb_LFSR.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.LFSR_tb
+# End time: 15:52:11 on Jun 18,2025, Elapsed time: 0:02:19
+# Errors: 0, Warnings: 0
+# vsim work.LFSR_tb 
+# Start time: 15:52:11 on Jun 18,2025
+# Loading sv_std.std
+# Loading work.LFSR_tb
+# Loading work.LFSR
+# Compile of LFSR.sv was successful.
+# Compile of tb_LFSR.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.LFSR_tb
+# End time: 15:52:57 on Jun 18,2025, Elapsed time: 0:00:46
+# Errors: 0, Warnings: 0
+# vsim work.LFSR_tb 
+# Start time: 15:52:57 on Jun 18,2025
+# Loading sv_std.std
+# Loading work.LFSR_tb
+# Loading work.LFSR
+add wave -position insertpoint  \
+sim:/LFSR_tb/clk \
+sim:/LFSR_tb/lfsr
+run -all
+# ** Note: $finish    : C:/Users/mudzo/Desktop/CPEN311/lab5_cpen311/rtl/Lab5_template_de1soc/LFSR/tb_LFSR.sv(26)
+#    Time: 395 ns  Iteration: 1  Instance: /LFSR_tb
+# 1
+# Break in Module LFSR_tb at C:/Users/mudzo/Desktop/CPEN311/lab5_cpen311/rtl/Lab5_template_de1soc/LFSR/tb_LFSR.sv line 26
+# Compile of LFSR.sv was successful.
+# Compile of tb_LFSR.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.LFSR_tb
+# End time: 15:54:23 on Jun 18,2025, Elapsed time: 0:01:26
+# Errors: 0, Warnings: 0
+# vsim work.LFSR_tb 
+# Start time: 15:54:23 on Jun 18,2025
+# Loading sv_std.std
+# Loading work.LFSR_tb
+# Loading work.LFSR
+add wave -position insertpoint  \
+sim:/LFSR_tb/clk \
+sim:/LFSR_tb/lfsr
+run -all
+# ** Note: $finish    : C:/Users/mudzo/Desktop/CPEN311/lab5_cpen311/rtl/Lab5_template_de1soc/LFSR/tb_LFSR.sv(29)
+#    Time: 395 ns  Iteration: 1  Instance: /LFSR_tb
+# 1
+# Break in Module LFSR_tb at C:/Users/mudzo/Desktop/CPEN311/lab5_cpen311/rtl/Lab5_template_de1soc/LFSR/tb_LFSR.sv line 29
+# End time: 17:01:11 on Jun 18,2025, Elapsed time: 1:06:48
+# Errors: 0, Warnings: 0
